@@ -2,6 +2,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import numpy as np
 
+np.random.seed(101)
 x_data = np.linspace(0,10,10) + np.random.uniform(-1.5,1.5,10)
 y_label = np.linspace(0,10,10) + np.random.uniform(-1.5,1.5,10)
 
@@ -20,7 +21,7 @@ init = tf.global_variables_initializer()
 
 with tf.Session() as sess:
     sess.run(init)
-    training_steps = 100
+    training_steps = 1
     for i in range(training_steps):
         sess.run(train)
     final_slope,final_intercept = sess.run([m,b])
